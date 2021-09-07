@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_all"
+            android:checked="true"
+            android:title="@string/all_news"/>
+        <item
+            android:id="@+id/action_business"
+            android:checked="false"
+            android:title="@string/business"/>
+        <item
+            android:id="@+id/action_entertainment"
+            android:checked="false"
+            android:title="@string/entertainment"/>
+        <item
+            android:id="@+id/action_health"
+            android:checked="false"
+            android:title="@string/health"/>
+        <item
+            android:id="@+id/action_science"
+            android:checked="false"
+            android:title="@string/science"/>
+        <item
+            android:id="@+id/action_sports"
+            android:checked="false"
+            android:title="@string/sports"/>
+        <item
+            android:id="@+id/action_technology"
+            android:checked="false"
+            android:title="@string/technology"/>
+    </group>
+    <item
+        android:id="@+id/action_favorite"
+        android:checked="false"
+        android:icon="@drawable/ic_baseline_bookmark"
+        android:title="@string/favorite_list"/>
+</menu>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">iNews</string>
+    <string name="all_news">All</string>
+    <string name="business">Business</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="health">Health</string>
+    <string name="science">Science</string>
+    <string name="sports">Sports</string>
+    <string name="technology">Technology</string>
+    <string name="favorite_list">Daftar Favorit</string>
+    <string name="add_to_favorite">Add To Favorite</string>
+    <string name="view_more">Lebih banyak…</string>
+    <string name="author">Penulis: %s</string>
+    <string name="author_not_found">Penulis tidak diketahui</string>
+</resources>
