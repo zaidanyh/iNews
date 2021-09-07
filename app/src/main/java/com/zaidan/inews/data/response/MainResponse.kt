@@ -43,8 +43,6 @@ data class ArticlesItem(
 	@field:SerializedName("content")
 	val content: String?,
 
-	var isFav: Boolean = false,
-
 	@PrimaryKey(autoGenerate = true)
 	var id: Int,
 ) : Parcelable

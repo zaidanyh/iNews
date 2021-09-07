@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NewsDao {
-    @Query("SELECT * FROM news_entity WHERE isFav = 1")
+    @Query("SELECT * FROM news_entity")
     fun getFavNews(): Flow<List<ArticlesItem>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

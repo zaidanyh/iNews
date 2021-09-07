@@ -38,13 +38,15 @@ class DetailActivity : AppCompatActivity() {
 
         article = intent.getParcelableExtra(NEWS_KEY)
         if (article != null) {
-            setFavorite(article?.isFav!!)
+            var buttonState = false
             viewModel.favNews.observe(this, {
                 it.forEach { item ->
                     if (item.urlToImage == article?.urlToImage) {
-                        article?.isFav = item.isFav
                         article?.id = item.id
-                        setFavorite(true)
+                        buttonState = true
+                        setFavorite(buttonState)
+                    } else {
+                        setFavorite(buttonState)
                     }
                 }
             })
@@ -71,7 +73,7 @@ class DetailActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 fabFav.setOnClickListener {
-                    fabFavClicked()
+                    fabFavClicked(buttonState)
                 }
             }
         } else {
@@ -89,10 +91,10 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun fabFavClicked() {
+    private fun fabFavClicked(state: Boolean) {
+        val newState = !state
         article?.let {
-            it.isFav = !it.isFav
-            if (!it.isFav) {
+            if (!newState) {
                 viewModel.deleteToDb(it)
                 Toast.makeText(this, "Artikel ini telah dihapus dari daftar favorit!", Toast.LENGTH_SHORT).show()
             } else {
@@ -103,12 +105,11 @@ class DetailActivity : AppCompatActivity() {
                     description = it.description,
                     title = it.title,
                     url = it.url,
-                    content = it.content,
-                    isFav = it.isFav
+                    content = it.content
                 ))
                 Toast.makeText(this@DetailActivity, "Artikel ini telah ditambahkan ke daftar favorit!", Toast.LENGTH_SHORT).show()
             }
-            setFavorite(it.isFav)
+            setFavorite(newState)
         }
     }
 
